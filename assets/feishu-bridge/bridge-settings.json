@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__bridge__send_file"
+    ],
+    "deny": [
+      "Read(~/.ssh/**)",
+      "Read(~/mt_img_key.txt)",
+      "Read(~/.claude/skills/intranet-deploy/mt_deploy)",
+      "Read(~/.claude/.credentials.json)",
+      "Read(//**/.env)",
+      "Read(//**/.env.*)",
+      "Read(//**/*.pem)",
+      "Read(//**/id_rsa*)",
+      "Read(//**/id_ed25519*)",
+      "Read(//**/master.key)",
+      "Read(~/Library/Keychains/**)",
+      "Edit(~/.claude/settings.json)",
+      "Edit(~/.claude/settings.local.json)",
+      "Edit(~/.claude.json)",
+      "Edit(~/.claude/hooks/**)",
+      "Edit({{WORKDIR_RULE}}/.claude/settings.json)",
+      "Edit({{WORKDIR_RULE}}/.claude/settings.local.json)",
+      "Edit({{BRIDGE_DIR_RULE}}/**)",
+      "Edit(~/Library/LaunchAgents/**)",
+      "Bash(launchctl *)",
+      "Bash(security *)",
+      "Bash(crontab *)",
+      "Bash(sudo *)",
+      "Bash(git push *)",
+      "Bash(schtasks *)",
+      "Bash(schtasks.exe *)",
+      "Bash(reg *)",
+      "Bash(reg.exe *)",
+      "Bash(shutdown *)",
+      "Bash(format *)",
+      "PowerShell(git push *)",
+      "PowerShell(schtasks *)",
+      "PowerShell(reg *)",
+      "PowerShell(Register-ScheduledTask *)",
+      "PowerShell(Unregister-ScheduledTask *)",
+      "PowerShell(Set-ScheduledTask *)",
+      "PowerShell(Set-ItemProperty *)",
+      "PowerShell(New-ItemProperty *)",
+      "PowerShell(Stop-Computer *)",
+      "PowerShell(Restart-Computer *)",
+      "PowerShell(Format-Volume *)"
+    ]
+  }
+}

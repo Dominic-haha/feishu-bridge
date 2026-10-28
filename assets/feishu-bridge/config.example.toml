@@ -1,0 +1,49 @@
+# 飞书桥配置。改完重启飞书桥生效（计划任务里「结束」再「运行」，或注销重登）。
+
+[feishu]
+# 飞书自建应用的 App ID。App Secret 不写这里：跑 python setup_secrets.py 存进 Windows 凭据管理器
+app_id = ""
+# 只接受这些人的单聊消息。open_id 是「每个应用一套」的：先留空启动，给机器人发条消息，它会把你的 open_id 回给你
+allowed_open_ids = []
+# 应用配了卡片回调（card.action.trigger）才能用按钮；false = 卡片上不放按钮，引用回复「1 / 2 / 0」「执行 / 忽略」
+card_buttons = true
+
+[claude]
+# 留空 = 自动用 Claude 桌面版自带的最新 claude.exe
+path = ""
+# 任务在哪个目录下跑：决定默认能读写哪些文件、用哪一份项目记忆。
+# 留空 = 你的用户主目录（C:\Users\你）；建议填你平时放工作文件的文件夹，比如 'D:\工作'（用单引号，反斜杠不用转义）
+workdir = ''
+# 留空 = 跟随你的默认模型
+model = ""
+max_turns = 100
+# 单个任务的花费上限（美元，按 Claude Code 自己的估算）；0 = 不限
+max_budget_usd = 10
+# 单个任务最长跑多少分钟，超时强制停止
+timeout_minutes = 30
+# 远程任务额外能用的 MCP，按名字从 ~/.claude.json 里挑，比如 ["scrapling"]；默认只有飞书桥自己的审批、发文件工具
+extra_mcp_servers = []
+# 加载哪些 settings：user = 你的用户级设置（技能、模型偏好、语言、hooks），project = 工作目录下的 .claude/settings.json
+setting_sources = "user,project"
+# Git Bash 路径，一般留空让 Claude Code 自己找
+git_bash_path = ""
+
+[policy]
+# 消息发出后超过这么多分钟才收到（多半是电脑离线时积压的），先发确认卡，不自动执行
+stale_minutes = 10
+# 同样的内容在这么多秒内再发一次，先确认
+duplicate_seconds = 60
+# 审批卡多少秒内不点，按拒绝处理
+approval_timeout_seconds = 300
+# send_file 只能发这些目录下的文件；留空 = 只有工作目录
+send_file_roots = []
+# 手机发来的图片、文件存到哪；留空 = 工作目录下的 _飞书收件
+inbox_dir = ''
+# 结果超过这么多字，改成 .md 文件发
+result_inline_chars = 3000
+# 手机上新开的会话跑完，自动在电脑的 Claude 桌面版里打开（桌面版会跳过去，侧边栏里就有了）。
+# 打开后这个会话就在电脑上开着了，再从手机接着聊会先弹「正开着」的确认
+auto_open_new_sessions = false
+# Mac：飞书桥在跑的时候，接着电源就不让电脑自动睡眠（显示器照常熄屏），睡着了收不到消息。
+# 笔记本拔了电源照常睡，合上盖子通常也会睡。Windows 上不起作用，靠电源设置
+keep_awake = true
